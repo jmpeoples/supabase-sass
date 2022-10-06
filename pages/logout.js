@@ -4,8 +4,8 @@ import { useRouter } from "next/router";
 
 const Logout = () => {
     const router = useRouter();
-    useEffect(() =>{
-        const logout = async() =>{
+    useEffect(() => {
+        const logout = async () => {
             await supabase.auth.signOut();
             router.push('/')
         };
