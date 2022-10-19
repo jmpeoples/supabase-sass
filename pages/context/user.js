@@ -7,6 +7,7 @@ const Context = createContext();
 const Provider = ({children}) => {
     const router = useRouter(); 
     const [user, setUser] = useState(supabase.auth.user());
+    const [isLoading, setIsLoading] = useState(true);
 
     // listen to any changes on our Auth object
     useEffect(() => {
@@ -26,7 +27,9 @@ const Provider = ({children}) => {
                 setUser({
                     ...sessionUser,
                     ...profile,
-                })
+                });
+
+                setIsLoading(false);
             }
         }
      
@@ -53,6 +56,7 @@ const Provider = ({children}) => {
         user,
         login,
         logout,
+        isLoading,
     }
 
     return(
