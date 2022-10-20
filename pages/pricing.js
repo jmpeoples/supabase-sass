@@ -2,6 +2,8 @@ import InitStripe from "stripe";
 import { useUser } from '../pages/context/user';
 import axios from 'axios';
 import { loadStripe } from "@stripe/stripe-js";
+import Link from 'next/link';
+
 
 const Pricing = ({plans}) => {
     const { user, login, isLoading } = useUser();
@@ -33,7 +35,9 @@ const Pricing = ({plans}) => {
                         <button onClick={processSubscription(plan.id)}>Subscribe</button>
                     )}
                     {showMangeSubscriptionButton && (
-                        <button>Manage Subscription</button>
+                        <Link href="/dashboard">
+                            <a>Manage Subscription</a>
+                        </Link>
                     )}
                     </div>    
                 )}
