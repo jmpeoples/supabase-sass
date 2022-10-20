@@ -1,12 +1,8 @@
 const Privacy = () => {
-    return(
+   return(
+   <div>
+      <h1>Terms</h1>
+   </div>)
+}
  
-    <div>
- <h1>Privacy</h1>
-   
-    </div>
-     
-    )
- }
- 
- export default Terms
+ export default Privacy
