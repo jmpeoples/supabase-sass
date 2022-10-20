@@ -1,6 +1,6 @@
 // import initStripe from 'stripe';
 import Stripe from "stripe";
-import { supabase} from "../../utils/supabase";
+import { getServiceSupabase } from "../../utils/supabase";
 
 const handler = async (req, res) => {
      //create API key, verify the person making requests is us and not some stranger
@@ -16,8 +16,8 @@ const handler = async (req, res) => {
             description: "My first test customer"
         });
 
-       
-    //
+    // use this to bypass row level security   
+    const supabase = getServiceSupabase();
 
         await supabase.from('profile').update({
             stripe_customer: customer.id
